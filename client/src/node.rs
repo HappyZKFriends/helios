@@ -192,7 +192,7 @@ impl Node {
     }
 
     pub async fn get_block_number(&self) -> Result<U256> {
-        self.check_head_age().await?;
+        //self.check_head_age().await?;
 
         let block = self.execution.get_block(BlockTag::Latest, false).await?;
         Ok(U256::from(block.number.as_u64()))
