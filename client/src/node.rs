@@ -267,6 +267,14 @@ impl Node {
 
         println!("timestamp: {}", timestamp);
 
+        let block = self
+            .execution
+            .get_block(BlockTag::Latest, false)
+            .await.unwrap();
+
+        println!("block timestamp: {}", block.timestamp);
+        println!("block number: {}", block.number);
+
         let block_timestap = self
             .execution
             .get_block(BlockTag::Latest, false)
