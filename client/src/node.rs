@@ -275,7 +275,7 @@ impl Node {
             .timestamp
             .as_u64();
 
-        println!("block_timestap: {}", timestamp);
+        println!("block_timestap: {}", block_timestap);
 
         let delay = timestamp.checked_sub(block_timestap).unwrap_or_default();
         if delay > 3600 {
