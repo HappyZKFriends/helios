@@ -265,6 +265,8 @@ impl Node {
             .unwrap()
             .as_secs();
 
+        println!("timestamp: {}", timestamp);
+
         let block_timestap = self
             .execution
             .get_block(BlockTag::Latest, false)
@@ -272,6 +274,8 @@ impl Node {
             .map_err(|_| NodeError::OutOfSync(timestamp))?
             .timestamp
             .as_u64();
+
+        println!("block_timestap: {}", timestamp);
 
         let delay = timestamp.checked_sub(block_timestap).unwrap_or_default();
         if delay > 3600 {
